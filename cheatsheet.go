@@ -77,4 +77,7 @@ func main() {
 	// a slice of runes from a string
 	b := []rune("Nenad")
 	fmt.Println(b)
+
+	// is rune in string upper, IsDigit, IsLower ... the similar functions
+	fmt.Println(unicode.IsUpper('R'))
 }
