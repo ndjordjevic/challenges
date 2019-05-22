@@ -85,7 +85,7 @@ func main() {
 	// check if string contains any of provided characters
 	strings.ContainsAny("sdfsd#", "!@#$%^&*()-+")
 
-	// string builder
+	// string Builder, WriteString or WriteRune
 	var strB strings.Builder
 	strB.WriteString("Hello")
 	strB.WriteString(" World")
