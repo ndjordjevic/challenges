@@ -5,6 +5,7 @@ import (
 	"math"
 	"sort"
 	"strconv"
+	"strings"
 	"unicode"
 )
 
@@ -80,4 +81,7 @@ func main() {
 
 	// is rune in string upper, IsDigit, IsLower ... the similar functions
 	fmt.Println(unicode.IsUpper('R'))
+
+	// check if string contains any of provided characters
+	strings.ContainsAny("sdfsd#", "!@#$%^&*()-+")
 }
