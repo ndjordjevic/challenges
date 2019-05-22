@@ -14,9 +14,9 @@ func toLowerCase(s string) string {
 
 	for _, e := range s {
 		if e >= 'A' && e <= 'Z' {
-			str.WriteString(string(e + 32))
+			str.WriteRune(e + 32)
 		} else {
-			str.WriteString(string(e))
+			str.WriteRune(e)
 		}
 	}
 
