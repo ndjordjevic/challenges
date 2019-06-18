@@ -89,4 +89,5 @@ func main() {
 	var strB strings.Builder
 	strB.WriteString("Hello")
 	strB.WriteString(" World")
+	strB.Reset() // reset a String Builder
 }
