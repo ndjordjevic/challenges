@@ -7,7 +7,7 @@ func main() {
 	head.Val = 1
 	head.Next = &ListNode{Val: 2, Next: &ListNode{Val: 3, Next: &ListNode{Val: 4, Next: nil}}}
 
-	reversed := reverseList2(head)
+	reversed := reverseList3(head)
 
 	for reversed != nil {
 		fmt.Printf("%v\n", reversed)
@@ -43,4 +43,20 @@ func reverseList2(head *ListNode) *ListNode {
 		return reverse(next, head)
 	}
 	return reverse(head, nil)
+}
+
+func reverseList3(head *ListNode) *ListNode {
+	var prev *ListNode
+	current := head
+	var next *ListNode
+
+	for current != nil {
+		next = current.Next
+		current.Next = prev
+		prev = current
+		current = next
+	}
+	head = prev
+
+	return head
 }
