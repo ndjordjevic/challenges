@@ -8,7 +8,8 @@ import (
 )
 
 func main() {
-	fmt.Println(infixToPostFix("a+b*c+d"))
+	fmt.Printf("a+b*c+d infix to postfix: %s", infixToPostFix("a+b*c+d"))
+	fmt.Printf("a+b*(c^d-e)^(f+g*h)-i infix to postfix: %s", infixToPostFix("a+b*(c^d-e)^(f+g*h)-i"))
 }
 
 func infixToPostFix(s string) string {
@@ -33,7 +34,7 @@ func infixToPostFix(s string) string {
 			if !stk.IsEmpty() && stk.Peek() != '(' {
 				return "Invalid expression"
 			} else {
-				stk.Pop()
+				_, _ = stk.Pop()
 			}
 		} else {
 			for !stk.IsEmpty() && prec(value) <= prec(stk.Peek().(rune)) {
