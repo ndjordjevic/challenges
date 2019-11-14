@@ -96,4 +96,11 @@ func main() {
 	for _, c := range "asdffsadfasdas" {
 		ccm[c-'a']++
 	}
+
+	// Max and min int
+	_ = math.MaxInt32
+	_ = math.MinInt32
+
+	// Access a specific char in a string by index
+	_ = "abcd"[0] // 'a'
 }
