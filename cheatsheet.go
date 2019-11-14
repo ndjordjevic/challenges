@@ -90,4 +90,10 @@ func main() {
 	strB.WriteString("Hello")
 	strB.WriteString(" World")
 	strB.Reset() // reset a String Builder
+
+	// fit to count of english lowercase letters in a fixed array
+	ccm := [26]int{}
+	for _, c := range "asdffsadfasdas" {
+		ccm[c-'a']++
+	}
 }
