@@ -20,16 +20,16 @@ func fibonacci(i int) int {
 
 func fibonacci2(n int) int {
 	a := make([]int, n+1)
-	return fib(n, a)
+	return fibonacciRec(n, a)
 }
 
-func fib(i int, memo []int) int {
+func fibonacciRec(i int, memo []int) int {
 	if i == 0 || i == 1 {
 		return i
 	}
 
 	if memo[i] == 0 {
-		memo[i] = fib(i-1, memo) + fib(i-2, memo)
+		memo[i] = fibonacciRec(i-1, memo) + fibonacciRec(i-2, memo)
 	}
 
 	return memo[i]
