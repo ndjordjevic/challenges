@@ -1,9 +1,13 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 func main() {
 	fmt.Println(urliFy("Mr John Smith    ", 13))
+	fmt.Println(urliFy2("Mr John Smith"))
 }
 
 func urliFy(s string, l int) string {
@@ -30,4 +34,18 @@ func urliFy(s string, l int) string {
 	}
 
 	return string(a)
+}
+
+func urliFy2(s string) string {
+	b := strings.Builder{}
+
+	for _, v := range s {
+		if v != ' ' {
+			b.WriteRune(v)
+		} else {
+			b.WriteString("%20")
+		}
+	}
+
+	return b.String()
 }
