@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
 	fmt.Println(checkStringPermutation("nenaddj", "naddnej"))
@@ -28,6 +30,10 @@ func main() {
 //}
 
 func checkStringPermutation(s1 string, s2 string) bool {
+	if len(s1) != len(s2) {
+		return false
+	}
+
 	var a [128]int
 
 	for _, v := range s1 {
