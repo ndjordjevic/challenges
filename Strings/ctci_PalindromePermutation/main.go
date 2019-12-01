@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	fmt.Println(palindromePermutation("tactcoapagpag"))
+	fmt.Println(palindromePermutation("Tact Coa"))
 }
 
 func palindromePermutation(s string) bool {
