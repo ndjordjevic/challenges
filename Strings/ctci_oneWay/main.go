@@ -2,51 +2,53 @@ package main
 
 import (
 	"fmt"
-	"math"
 )
 
 func main() {
-	fmt.Println(oneWay("pale", "pale"))
+	fmt.Println(oneWay("palae", "pale"))
 }
 
 func oneWay(s1 string, s2 string) bool {
-	var ss, bs string
-
-	if math.Abs(float64(len(s1))-float64(len(s2))) > 1 {
-		return false
+	if len(s1) == len(s2) {
+		return oneEditReplace(s1, s1)
+	} else if len(s1)+1 == len(s2) {
+		return oneEditInsert(s1, s2)
+	} else if len(s1)-1 == len(s2) {
+		return oneEditInsert(s2, s1)
 	}
 
-	if len(s1) >= len(s2) {
-		bs = s1
-		ss = s2
-	} else {
-		bs = s2
-		ss = s1
-	}
+	return false
+}
 
-	m := make(map[rune]int)
+func oneEditReplace(s1 string, s2 string) bool {
+	foundDiff := false
 
-	for _, v := range bs {
-		m[v] = m[v] + 1
-	}
-
-	fmt.Println(m)
-
-	m2 := make(map[rune]int)
-
-	for _, v := range ss {
-		m2[v] = m2[v] + 1
-	}
-
-	fmt.Println(m2)
-
-	var diff int
-
-	for _, v := range bs {
-		if m[v] != m2[v] {
-			diff++
+	for i := 0; i < len(s1); i++ {
+		if s1[i] != s2[i] {
+			if foundDiff {
+				return false
+			}
+			foundDiff = true
 		}
 	}
 
-	return diff <= 1
+	return true
+}
+
+func oneEditInsert(s1 string, s2 string) bool {
+	index1, index2 := 0, 0
+
+	for index2 < len(s2) && index1 < len(s1) {
+		if s1[index1] != s2[index2] {
+			if index1 != index2 {
+				return false
+			}
+			index2++
+		} else {
+			index1++
+			index2++
+		}
+	}
+
+	return true
 }
