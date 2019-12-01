@@ -75,6 +75,9 @@ func main() {
 	// lower case a char/rune
 	fmt.Println(unicode.ToLower('F'))
 
+	// Is rune a letter
+	fmt.Println(unicode.IsLetter('f'))
+
 	// a slice of runes from a string
 	b := []rune("Nenad")
 	fmt.Println(b)
@@ -103,4 +106,10 @@ func main() {
 
 	// Access a specific char in a string by index
 	_ = "abcd"[0] // 'a'
+
+	// Is even or odd
+	num := 5
+	if num%2 == 1 {
+		fmt.Println("Odd")
+	}
 }

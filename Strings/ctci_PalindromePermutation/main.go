@@ -10,31 +10,24 @@ func main() {
 }
 
 func palindromePermutation(s string) bool {
-	m := make(map[rune]int)
-	var l int
+	table := [26]int{}
 
 	for _, v := range s {
-		if v != ' ' {
-			m[unicode.ToLower(v)]++
-			l++
+		if unicode.IsLetter(v) {
+			table[unicode.ToLower(v)-'a']++
 		}
 	}
 
-	var oddC int
-	for k, v := range m {
-		fmt.Printf("%c, %d", k, v)
-		fmt.Println()
-		if v%2 != 0 {
-			oddC++
+	foundOdd := false
+
+	for _, v := range table {
+		if v%2 == 1 {
+			if foundOdd {
+				return false
+			}
+			foundOdd = true
 		}
 	}
 
-	fmt.Println(l)
-	fmt.Println(oddC)
-
-	if oddC == 1 {
-		return true
-	}
-
-	return false
+	return true
 }
